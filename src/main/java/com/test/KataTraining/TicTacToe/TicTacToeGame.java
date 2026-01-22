@@ -6,6 +6,7 @@ public class TicTacToeGame {
     private gameStatus currentStatus = gameStatus.IN_PROGRESS;
     private Player[][] board = new Player[3][3];
 
+
     public Player getCurrentPlayer()
     {
         return currentPlayer;
@@ -35,8 +36,21 @@ public class TicTacToeGame {
         }
 
         board[row][col] = currentPlayer;
-        currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
+        checkWin(row);
+        switchPlayer();
 
+    }
+
+    private void switchPlayer() {
+        currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
+    }
+
+    private void checkWin(int row) {
+        if(board[row][0]== currentPlayer  && board[row][1]==currentPlayer &&
+            board[row][2]==currentPlayer)
+        {
+            currentStatus = (currentPlayer == Player.X) ? gameStatus.X_WINS : gameStatus.O_WINS;
+        }
     }
 
 }

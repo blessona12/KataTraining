@@ -48,4 +48,16 @@ public class TicTacToeGameTest {
          assertEquals("cell is already occupied",exception.getMessage());
      }
 
+     @Test
+    void playerXwinsHorizontal()
+     {
+         TicTacToeGame game = new TicTacToeGame();
+         game.playAt(0,0); // X
+         game.playAt(1,0); // O
+         game.playAt(0,1); // X
+         game.playAt(1,1); // O
+         game.playAt(0,2); // X wins
+         assertEquals(gameStatus.X_WINS,game.getStatus());
+     }
+
 }
