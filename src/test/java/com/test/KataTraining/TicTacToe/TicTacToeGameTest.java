@@ -24,10 +24,16 @@ public class TicTacToeGameTest {
     void playerCanMarkOnBoard()
     {
         TicTacToeGame game =new TicTacToeGame();
-
         game.play(0,0);
-
         assertEquals(Player.X,game.getCell(0,0));
+     }
+
+     @Test
+    void switchTurnAfterMove()
+     {
+         TicTacToeGame game= new TicTacToeGame();
+         game.play(0,0);
+         assertEquals(Player.O,game.getCurrentPlayer());
      }
 
 }

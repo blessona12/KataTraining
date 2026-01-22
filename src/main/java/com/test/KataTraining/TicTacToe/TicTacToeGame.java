@@ -19,6 +19,7 @@ public class TicTacToeGame {
     public void play(int row, int coloumn)
     {
         board[row][coloumn] = currentPlayer;
+        currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
     }
 
     public Player getCell(int row, int column)
