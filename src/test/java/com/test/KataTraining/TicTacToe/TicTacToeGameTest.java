@@ -60,4 +60,18 @@ public class TicTacToeGameTest {
          assertEquals(gameStatus.X_WINS,game.getStatus());
      }
 
+    @Test
+    void cannotPlayAfterGameIsWon() {
+        TicTacToeGame game = new TicTacToeGame();
+
+        game.playAt(0, 0); // X
+        game.playAt(1, 0); // O
+        game.playAt(0, 1); // X
+        game.playAt(1, 1); // O
+        game.playAt(0, 2); // X wins
+
+        assertThrows(IllegalStateException.class,
+                () -> game.playAt(2, 2));
+    }
+
 }

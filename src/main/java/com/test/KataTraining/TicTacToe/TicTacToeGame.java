@@ -28,17 +28,18 @@ public class TicTacToeGame {
         return board[row][column];
     }
 
-    public void playAt(int row,int col)
-    {
-        if(board[row][col] != null)
-        {
-            throw new IllegalStateException("cell is already occupied");
+    public void playAt(int row, int col) {
+        if (currentStatus != gameStatus.IN_PROGRESS) {
+            throw new IllegalStateException("Game is already finished");
+        }
+
+        if (board[row][col] != null) {
+            throw new IllegalStateException("Cell is already occupied");
         }
 
         board[row][col] = currentPlayer;
         checkWin(row);
         switchPlayer();
-
     }
 
     private void switchPlayer() {
