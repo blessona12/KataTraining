@@ -12,4 +12,12 @@ public class TicTacToeGameTest {
         TicTacToeGame game=new TicTacToeGame();
         assertEquals(Player.X,game.getCurrentPlayer());
     }
+
+    @Test
+    void gameStartInprogress()
+    {
+        TicTacToeGame game=new TicTacToeGame();
+        assertEquals(gameStatus.IN_PROGRESS, game.getStatus());
+    }
+
 }
