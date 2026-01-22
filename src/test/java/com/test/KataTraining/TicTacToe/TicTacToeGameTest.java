@@ -20,4 +20,14 @@ public class TicTacToeGameTest {
         assertEquals(gameStatus.IN_PROGRESS, game.getStatus());
     }
 
+    @Test
+    void playerCanMarkOnBoard()
+    {
+        TicTacToeGame game =new TicTacToeGame();
+
+        game.play(0,0);
+
+        assertEquals(Player.X,game.getCell(0,0));
+     }
+
 }

@@ -4,6 +4,7 @@ public class TicTacToeGame {
 
     private Player currentPlayer = Player.X;
     private gameStatus currentStatus = gameStatus.IN_PROGRESS;
+    private Player[][] board = new Player[3][3];
 
     public Player getCurrentPlayer()
     {
@@ -14,4 +15,15 @@ public class TicTacToeGame {
     {
         return currentStatus;
     }
+
+    public void play(int row, int coloumn)
+    {
+        board[row][coloumn] = currentPlayer;
+    }
+
+    public Player getCell(int row, int column)
+    {
+        return board[row][column];
+    }
+
 }
