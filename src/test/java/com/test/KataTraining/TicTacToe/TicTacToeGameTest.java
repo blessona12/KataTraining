@@ -3,6 +3,7 @@ package com.test.KataTraining.TicTacToe;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TicTacToeGameTest {
 
@@ -34,6 +35,17 @@ public class TicTacToeGameTest {
          TicTacToeGame game= new TicTacToeGame();
          game.play(0,0);
          assertEquals(Player.O,game.getCurrentPlayer());
+     }
+
+     @Test
+     void cannotPlayOnOccupiedCell()
+     {
+         TicTacToeGame game= new TicTacToeGame();
+         game.playAt(0,0);
+         IllegalStateException exception =
+                 assertThrows(IllegalStateException.class,
+                         () -> game.playAt(0, 0));
+         assertEquals("cell is already occupied",exception.getMessage());
      }
 
 }

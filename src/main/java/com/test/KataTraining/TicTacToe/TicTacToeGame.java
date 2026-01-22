@@ -27,4 +27,16 @@ public class TicTacToeGame {
         return board[row][column];
     }
 
+    public void playAt(int row,int col)
+    {
+        if(board[row][col] != null)
+        {
+            throw new IllegalStateException("cell is already occupied");
+        }
+
+        board[row][col] = currentPlayer;
+        currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
+
+    }
+
 }
