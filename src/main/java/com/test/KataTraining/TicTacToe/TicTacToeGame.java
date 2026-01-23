@@ -39,7 +39,15 @@ public class TicTacToeGame {
 
         board[row][col] = currentPlayer;
         checkWin(row,col);
-        switchPlayer();
+
+        if (currentStatus == gameStatus.IN_PROGRESS) {
+            checkDraw();
+        }
+
+        if (currentStatus == gameStatus.IN_PROGRESS) {
+            switchPlayer();
+        }
+
     }
 
     private void switchPlayer() {
@@ -69,6 +77,16 @@ public class TicTacToeGame {
     private boolean isVerticalwin(int col)
     {
         return board[0][col] == currentPlayer && board[1][col] == currentPlayer && board[2][col] == currentPlayer;
+    }
+
+    private void checkDraw()
+    {
+        for(Player[] row:board) {
+            for (Player cell : row) {
+                if(cell == null) return;
+            }
+        }
+        currentStatus = gameStatus.DRAW;
     }
 
 }
