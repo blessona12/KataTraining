@@ -38,7 +38,7 @@ public class TicTacToeGame {
         }
 
         board[row][col] = currentPlayer;
-        checkWin(row);
+        checkWin(row,col);
         switchPlayer();
     }
 
@@ -46,12 +46,21 @@ public class TicTacToeGame {
         currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
     }
 
-    private void checkWin(int row) {
-        if(board[row][0]== currentPlayer  && board[row][1]==currentPlayer &&
-            board[row][2]==currentPlayer)
+    private void checkWin(int row,int col) {
+        if(isHorizontalWin(row) || isVerticalwin(col))
         {
             currentStatus = (currentPlayer == Player.X) ? gameStatus.X_WINS : gameStatus.O_WINS;
         }
+    }
+
+    private boolean isHorizontalWin(int row)
+    {
+        return board[row][0] == currentPlayer && board[row][1] == currentPlayer && board [row][2] == currentPlayer;
+    }
+
+    private boolean isVerticalwin(int col)
+    {
+        return board[0][col] == currentPlayer && board[1][col] == currentPlayer && board[2][col] == currentPlayer;
     }
 
 }

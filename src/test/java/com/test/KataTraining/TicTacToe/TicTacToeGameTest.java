@@ -52,11 +52,11 @@ public class TicTacToeGameTest {
     void playerXwinsHorizontal()
      {
          TicTacToeGame game = new TicTacToeGame();
-         game.playAt(0,0); // X
-         game.playAt(1,0); // O
-         game.playAt(0,1); // X
-         game.playAt(1,1); // O
-         game.playAt(0,2); // X wins
+         game.playAt(0,0);
+         game.playAt(1,0);
+         game.playAt(0,1);
+         game.playAt(1,1);
+         game.playAt(0,2);
          assertEquals(gameStatus.X_WINS,game.getStatus());
      }
 
@@ -64,14 +64,28 @@ public class TicTacToeGameTest {
     void cannotPlayAfterGameIsWon() {
         TicTacToeGame game = new TicTacToeGame();
 
-        game.playAt(0, 0); // X
-        game.playAt(1, 0); // O
-        game.playAt(0, 1); // X
-        game.playAt(1, 1); // O
-        game.playAt(0, 2); // X wins
+        game.playAt(0, 0);
+        game.playAt(1, 0);
+        game.playAt(0, 1);
+        game.playAt(1, 1);
+        game.playAt(0, 2);
 
         assertThrows(IllegalStateException.class,
                 () -> game.playAt(2, 2));
+    }
+
+    @Test
+    void playerOVerticalWins()
+    {
+        TicTacToeGame game = new TicTacToeGame();
+        game.playAt(0,0);
+        game.playAt(0,1);
+        game.playAt(1,0);
+        game.playAt(1,1);
+        game.playAt(2,2);
+        game.playAt(2,1);
+
+        assertEquals(gameStatus.O_WINS,game.getStatus());
     }
 
 }
