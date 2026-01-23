@@ -100,5 +100,31 @@ public class TicTacToeGameTest {
 
         assertEquals(gameStatus.X_WINS,game.getStatus());
     }
+    @Test
+    void playerDiagonalWins()
+    {
+        TicTacToeGame game= new TicTacToeGame();
+        game.playAt(0,0);
+        game.playAt(0,1);
+        game.playAt(1,1);
+        game.playAt(2,1);
+        game.playAt(2,2);
+        assertEquals(gameStatus.X_WINS,game.getStatus());
+    }
+
+    @Test
+    void playerAntiDiagonalWin()
+    {
+        TicTacToeGame game = new TicTacToeGame();
+        game.playAt(0,0);
+        game.playAt(0,2);
+        game.playAt(1,0);
+        game.playAt(1,1);
+        game.playAt(2,2);
+        game.playAt(2,0);
+
+        assertEquals(gameStatus.O_WINS,game.getStatus());
+    }
+
 
 }

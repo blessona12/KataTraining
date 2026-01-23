@@ -47,10 +47,14 @@ public class TicTacToeGame {
     }
 
     private void checkWin(int row,int col) {
-        if(isHorizontalWin(row) || isVerticalwin(col) || isDiagonalWin())
+        if(isHorizontalWin(row) || isVerticalwin(col) || isDiagonalWin() || isAntiDiagonalWin())
         {
             currentStatus = (currentPlayer == Player.X) ? gameStatus.X_WINS : gameStatus.O_WINS;
         }
+    }
+
+    private boolean isAntiDiagonalWin() {
+        return board[0][2] == currentPlayer && board[1][1] == currentPlayer && board[2][0] ==currentPlayer;
     }
 
     private boolean isDiagonalWin() {
