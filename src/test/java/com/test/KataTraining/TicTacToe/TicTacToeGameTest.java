@@ -45,7 +45,7 @@ public class TicTacToeGameTest {
          IllegalStateException exception =
                  assertThrows(IllegalStateException.class,
                          () -> game.playAt(0, 0));
-         assertEquals("cell is already occupied",exception.getMessage());
+         assertEquals("Cell is already occupied",exception.getMessage());
      }
 
      @Test
