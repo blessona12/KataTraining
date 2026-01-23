@@ -2,9 +2,11 @@ package com.test.KataTraining.TicTacToe;
 
 public class TicTacToeGame {
 
+    private static final int SIZE = 3;
+
     private Player currentPlayer = Player.X;
     private gameStatus currentStatus = gameStatus.IN_PROGRESS;
-    private Player[][] board = new Player[3][3];
+    private Player[][] board = new Player[SIZE][SIZE];
 
 
     public Player getCurrentPlayer()
