@@ -88,4 +88,17 @@ public class TicTacToeGameTest {
         assertEquals(gameStatus.O_WINS,game.getStatus());
     }
 
+    @Test
+    void playerHorizontalWins()
+    {
+        TicTacToeGame game= new TicTacToeGame();
+        game.playAt(0,0);
+        game.playAt(0,1);
+        game.playAt(1,1);
+        game.playAt(0,2);
+        game.playAt(2,2);
+
+        assertEquals(gameStatus.X_WINS,game.getStatus());
+    }
+
 }
