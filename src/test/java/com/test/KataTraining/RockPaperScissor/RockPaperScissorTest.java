@@ -12,5 +12,6 @@ public class RockPaperScissorTest {
         RockPaperScissor rpc=new RockPaperScissor();
         assertEquals("Draw!",rpc.play("Rock","Rock"));
         assertEquals("Draw!",rpc.play("scissor","scissor"));
+        assertEquals("Draw!",rpc.play("paper","paper"));
     }
 }
